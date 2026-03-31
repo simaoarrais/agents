@@ -50,6 +50,8 @@ docker compose up -d
 
 # Pull the Ollama model
 docker exec -i ollama ollama pull llama3.2:1b
+docker exec -i ollama ollama pull deepseek-r1:1.5b
+docker exec -i ollama ollama pull qwen3.5:0.8b
 ```
 
 Then open [http://localhost:5678](http://localhost:5678), set up an account, and import workflows:

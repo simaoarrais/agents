@@ -1,0 +1,112 @@
+{
+  "name": "My workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        0,
+        0
+      ],
+      "id": "93a0ed67-b3aa-44d0-a153-9fab795f5190",
+      "name": "When chat message received",
+      "webhookId": "fc91f1f7-31c3-43d4-a391-8dd825e4ccb8"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.agent",
+      "typeVersion": 3.1,
+      "position": [
+        208,
+        0
+      ],
+      "id": "6f472750-6b92-4730-bffa-c38a34eafb0d",
+      "name": "AI Agent"
+    },
+    {
+      "parameters": {
+        "model": "llama3.2:1b",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOllama",
+      "typeVersion": 1,
+      "position": [
+        80,
+        208
+      ],
+      "id": "2f834876-3912-4c96-8904-7b9fa5b4d91e",
+      "name": "Ollama Chat Model",
+      "credentials": {
+        "ollamaApi": {
+          "id": "vaul7d1FHFmMECeW",
+          "name": "Ollama account"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "@n8n/n8n-nodes-langchain.toolCalculator",
+      "typeVersion": 1,
+      "position": [
+        368,
+        208
+      ],
+      "id": "40d49e2b-fddd-403d-8310-2dc030e6c5c5",
+      "name": "Calculator"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ollama Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Calculator": {
+      "ai_tool": [
+        [
+          {
+            "node": "AI Agent",
+            "type": "ai_tool",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "a1b55080-b9b7-4e32-972a-87bc2b96f6df",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "ca6926595a0943f05ab1d7eecf9468f80a864a06c674a55f1794cc07e62e5798"
+  },
+  "id": "13IwHKzz1OfyaTzS",
+  "tags": []
+}

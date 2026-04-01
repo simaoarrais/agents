@@ -19,7 +19,7 @@ A 6-week hands-on course covering autonomous AI agent development across multipl
 | 5 | AutoGen |
 | 6 | MCP (Model Context Protocol) |
 
-> All LLM inference is handled locally via **Ollama** — no cloud API keys required.
+> All LLM inference is handled locally via **Ollama** - no cloud API keys required.
 
 ---
 
